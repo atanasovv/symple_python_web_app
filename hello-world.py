@@ -7,6 +7,8 @@ PORT_NUMBER = 80
 #This class will handles any incoming request from
 #the browser 
 class myHandler(BaseHTTPRequestHandler):
+      
+      
 
   #Handler for the GET requests
   def do_GET(self):
@@ -15,7 +17,10 @@ class myHandler(BaseHTTPRequestHandler):
     self.end_headers()
     # Send the html message
     self.wfile.write("*** Python - Hello World ! ***\n")
-    self.wfile.write("WELCOME_MSG : " + os.getenv('WELCOME_MSG', 'undef') )
+    for x in range(10000):
+          self.wfile.write("WELCOME_MSG : " + os.getenv('WELCOME_MSG', 'undef') )
+          self.wfile.write("\n")
+    
     self.wfile.write("\n")
     self.wfile.write("Hostname is : " + subprocess.check_output("uname -n", shell=True))
     self.wfile.write("Process ID  : " + str(os.getpid()))
