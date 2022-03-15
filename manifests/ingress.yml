@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "vakicluster-886e"
+    labels:
+        app: "vakicluster-886e"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: python_apps-vakicluster-886e.afb444928fcc46f295ec.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "vakicluster-886e"
+                servicePort: 80
