@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "vakicluster-886e"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "vakicluster-886e"
+  template:
+    metadata:
+      labels:
+        app: "vakicluster-886e"
+    spec:
+      containers:
+        - name: "vakicluster-886e"
+          image: "vakirepo.azurecr.io/vakicluster"
+          ports:
+          - containerPort: 80
